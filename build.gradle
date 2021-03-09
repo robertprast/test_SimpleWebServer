@@ -1,0 +1,10 @@
+apply plugin: 'java'
+apply plugin: 'application'
+
+jar {
+    archiveBaseName = 'SimpleJavaServer'
+    archiveVersion =  '0.1.0'
+}
+
+
+mainClassName = 'hello.JavaHTTPServer'
