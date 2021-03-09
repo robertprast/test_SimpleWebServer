@@ -98,9 +98,9 @@ public class JavaHTTPServer implements Runnable{
 						break;
 
 					case "/pathtraversal":
-						File path = new File(queryParameters.get("file"));
-						if (path.exists()) {
-							responseContent.append(Files.readString(path.toPath()));
+						File filepath = new File(queryParameters.get("file"));
+						if (filepath.exists()) {
+							responseContent.append(Files.readString(filepath.toPath()));
 						} else {
 							responseContent.append("404 Not Found");
 						}
