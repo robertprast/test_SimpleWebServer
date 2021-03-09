@@ -18,13 +18,9 @@ import java.util.Map;
 import java.util.HashMap;
 
 public class JavaHTTPServer implements Runnable{ 
-	// port to listen connection
+
 	static final int PORT = 8080;
-	
-	// verbose mode
-	static final boolean verbose = true;
-	
-	// Client Connection via Socket Class
+
 	private Socket connect;
 	private String method;
   	private String path;
@@ -45,12 +41,6 @@ public class JavaHTTPServer implements Runnable{
 			// we listen until user halts server execution
 			while (true) {
 				JavaHTTPServer myServer = new JavaHTTPServer(serverConnect.accept());
-				
-				if (verbose) {
-					System.out.println("Connecton opened. (" + new Date() + ")");
-				}
-				
-				// create dedicated thread to manage the client connection
 				Thread thread = new Thread(myServer);
 				thread.start();
 			}
@@ -140,10 +130,7 @@ public class JavaHTTPServer implements Runnable{
 			} catch (Exception e) {
 				System.err.println("Error closing stream : " + e.getMessage());
 			} 
-			
-			if (verbose) {
-				System.out.println("Connection closed.\n");
-			}
+
 		}
 		
 		
